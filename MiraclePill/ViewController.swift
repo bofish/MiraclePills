@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    @IBOutlet weak var streetLabel: UILabel!
+    @IBOutlet weak var streetField: UITextField!
+    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var zipField: UITextField!
 
     @IBOutlet weak var CountryBtn: UIButton!
     @IBOutlet weak var CountryPicker: UIPickerView!
@@ -30,6 +34,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     @IBAction func CountryBtnPressed(_ sender: Any) {
         CountryPicker.isHidden = false
+        streetLabel.isHidden = true
+        streetField.isHidden = true
+        zipLabel.isHidden = true
+        zipField.isHidden = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -47,7 +55,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         CountryBtn.setTitle(country[row], for: UIControlState.normal)
         CountryPicker.isHidden = true
-    }
+        streetLabel.isHidden = false
+        streetField.isHidden = false
+        zipLabel.isHidden = false
+        zipField.isHidden = false
 
+    }
+    
 }
 
